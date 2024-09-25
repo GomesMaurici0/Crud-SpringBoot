@@ -1,21 +1,19 @@
-package com.Challenge.CRUD.entities;
+package com.management.task.entities;
 
-import com.Challenge.CRUD.entities.enums.Status;
+import com.management.task.enums.StatusTask;
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
 
 @Entity
 @Table(name = "tabelaCrud")
-public class EntityCrud extends RepresentationModel<EntityCrud> {
+public class EntityManagementTask extends RepresentationModel<EntityManagementTask> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String titulo;
 	private String descricao;
-
-
-	private Status status = Status.PENDENTE;
+	private StatusTask status;
 
 	public Long getId() {
 		return id;
@@ -41,11 +39,11 @@ public class EntityCrud extends RepresentationModel<EntityCrud> {
 		this.descricao = descricao;
 	}
 
-	public Status getStatus() {
+	public StatusTask getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(StatusTask status) {
 		this.status = status;
 	}
 }
