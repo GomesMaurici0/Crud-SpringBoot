@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
+
 import java.util.Optional;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -23,11 +24,6 @@ public class ServiceManagementTask {
 	@Autowired
 	RepositoryTask repository;
 
-	public EntityManagementTask entityTaskSave(TaskManagementDTO taskDTO) {
-		EntityManagementTask entity = new EntityManagementTask();
-		BeanUtils.copyProperties(taskDTO,entity);
-		return repository.save(entity);
-	}
 
 	public Page<EntityManagementTask> getTaskfindAllPage(Pageable pageable) {
 		Page<EntityManagementTask> taskPage = repository.findAll(pageable);
@@ -43,7 +39,7 @@ public class ServiceManagementTask {
 	public EntityManagementTask validationID(Long id) {
 		Optional<EntityManagementTask> taskOptional = repository.findById(id);
 		if (taskOptional.isEmpty()) {
-			throw new IllegalArgumentException("Dados não existe.");
+			throw new IllegalArgumentException();
 		} else {
 			EntityManagementTask entityIdTask = taskOptional.get();
 			entityIdTask.add(linkTo(methodOn(TaskManagementController.class).getOne(entityIdTask.getId())).withSelfRel());
@@ -53,18 +49,23 @@ public class ServiceManagementTask {
 
 	public EntityManagementTask postValid(TaskManagementDTO taskDTO) {
 		if (repository.existsByTituloAndDescricao(taskDTO.titulo(), taskDTO.descricao())) {
-			throw new IllegalArgumentException("Dados Já existente.");
+			throw new IllegalArgumentException();
 		}
 		EntityManagementTask entity = new EntityManagementTask();
 		BeanUtils.copyProperties(taskDTO,entity);
 		return repository.save(entity);
 	}
+
 	public void deleteValid(Long id){
-		repository.delete(validationID(id));
+		if (!repository.existsById(id)) {
+			throw new IllegalArgumentException("ID não encontrado");
+		}
+		repository.deleteById(id);;
+
 	}
 	public EntityManagementTask putValid(Long id, TaskManagementDTO taskDTO){
 		EntityManagementTask entityValid = validationID(id);
-		BeanUtils.copyProperties(taskDTO,entityValid);
+		BeanUtils.copyProperties(taskDTO, entityValid);
 		return repository.save(entityValid);
 	}
 }
