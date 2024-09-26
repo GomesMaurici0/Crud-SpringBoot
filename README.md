@@ -59,7 +59,25 @@ cd TaskTrack
 mvn spring-boot:run
 ```
 
-### 4.  Interaja com a API Usando o Postman:
+### 4. A aplicação estará disponível em: http://localhost:8080
+
+# Documentação 
+## A documentação estará disponível via Swagger. Para acessar:
+1. Após iniciar a aplicação, abra seu navegador e acesse: 
+```bash
+    http://localhost:8080/api/swagger-ui/index.html#/
+```
+# Exemplo de Requisição POST (Adicionar Tarefa)
+```json lines
+{
+ "titulo": "Estudos de Java",
+ "descricao": "Aqui está um estudo sobre java.",
+ "status": "PENDENTE" // ou "CONCLUIDA" 
+}
+```
+2. O Swagger exibirá uma interface gráfica onde você pode testar todas as operações disponíveis na API, como criar, listar, atualizar e deletar tarefas.
+
+###Ou interaja com a API Usando o Postman:
    * Abra o Postman e crie uma nova requisição do tipo POST por exemplo.
    * Insira a URL: http://localhost:8080/api/task.
    * Defina o cabeçalho Content-Type como application/json.
