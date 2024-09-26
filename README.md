@@ -36,38 +36,30 @@
 * Maven: Gerenciamento de dependências
 ####
 * Hibernate: ORM para gerenciamento das entidades no banco de dados
-###
-* Swagger (OpenAPI)
 
 # Requisitos
 * ### **Java** 17
 ####
 * ### **Maven** 3.8+
 ####
-
+* ### **Postman** ou qualquer plataforma que faça interações CRUD.
+# Como executar o projeto
 
  ### 1. Clone o repositorio
 ```bash
-git clone https://github.com/GomesMaurici0/tasktrack.git
+git clone https://github.com/GomesMaurici0/Crud-SpringBoot.git
 ```
 ### 2.  Navegue para a pasta do projeto
 ```bash
-cd tasktrack
+cd Crud-SpringBoot
 ```
 
  ### 3. Compile e execute a aplicação
  ```bash
 mvn spring-boot:run
 ```
-4. A aplicação estará disponível em: http://localhost:8080
-# Documentação da API
-### A documentação da API está disponível via Swagger. Para acessar:
-1. Após iniciar a aplicação, abra seu navegador e acesse:
-```bash
-http://localhost:8080/api/swagger-ui/index.html#/
-```
-2. O Swagger exibirá uma interface gráfica onde você pode testar todas as operações disponíveis na API, como criar, listar, atualizar e deletar tarefas.
-### Ou Interaja com a API Usando o Postman:
+
+### 4.  Interaja com a API Usando o Postman:
    * Abra o Postman e crie uma nova requisição do tipo POST por exemplo.
    * Insira a URL: http://localhost:8080/api/task.
    * Defina o cabeçalho Content-Type como application/json.
