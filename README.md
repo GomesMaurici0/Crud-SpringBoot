@@ -42,8 +42,7 @@
 ####
 * ### **Maven** 3.8+
 ####
-* ### **Postman** ou qualquer plataforma que faça interações CRUD.
-# Como executar o projeto
+
 
  ### 1. Clone o repositorio
 ```bash
