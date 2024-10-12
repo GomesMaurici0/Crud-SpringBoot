@@ -46,11 +46,11 @@
 
  ### 1. Clone o repositorio
 ```bash
-git clone https://github.com/GomesMaurici0/Crud-SpringBoot.git
+git clone https://github.com/GomesMaurici0/TaskTrack.git
 ```
 ### 2.  Navegue para a pasta do projeto
 ```bash
-cd Crud-SpringBoot
+cd tasktrack
 ```
 
  ### 3. Compile e execute a aplicação
