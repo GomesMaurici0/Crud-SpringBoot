@@ -58,7 +58,13 @@ cd tasktrack
 mvn spring-boot:run
 ```
 
-### 4.  Interaja com a API Usando o Postman:
+### 4. Interaja com a API utilizando o swagger pela porta:
+```bash
+     http://localhost:8080/api/swagger-ui/index.html#/
+```
+
+
+ OU Interaja com a API Usando o Postman:
    * Abra o Postman e crie uma nova requisição do tipo POST por exemplo.
    * Insira a URL: http://localhost:8080/api/task.
    * Defina o cabeçalho Content-Type como application/json.
